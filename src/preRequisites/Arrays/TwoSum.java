@@ -6,6 +6,8 @@ import java.util.Map;
 /*sort the array
 take l=0,r=n-1  if (arr[l]+arr[r]<target) l++ else if (  >  ) r++ else return true;}
 this whole runs while l<r*/
+
+//O(n*logn) for both solutions
 public class TwoSum {
     class Solution {
         public int[] twoSum(int[] nums, int target) {
