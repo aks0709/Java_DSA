@@ -15,7 +15,17 @@ public class PartitionEqualSubsetSum {
 
             return helper(nums.length - 1, nums, totSum/2, dp);
         }
-
+//        Same as above question ,since we need to partition elements into 2 subsets such that both subsets have equal sum
+//        it means S1=S2
+//
+//        and S1+S2=Total Sum(S)
+//
+//        therefore S1=S/2
+//
+//        so we find Total Sum
+//if Total SUM ---> odd simply return false
+//
+//        same as above question we will try to find subset with sum S/2;
         public static boolean helper(int index, int arr[], int target, Boolean dp[][]) {
             if (target == 0) return true; // If target is 0, subset is found
 
