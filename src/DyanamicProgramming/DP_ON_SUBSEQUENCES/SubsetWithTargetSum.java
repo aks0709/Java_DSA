@@ -44,7 +44,7 @@ public class SubsetWithTargetSum {
             }
 
             // our base case in memoization is if (index == 0) we return true if arr[0] == target
-            // here for every target we store true if index == 0
+            // here if arr[0] is less than equal to target then we will set dp[0][arr[0]]=true
             // our final answer is on dp[n-1][target];
             if (arr[0] <= k) {
                 dp[0][arr[0]] = true;
