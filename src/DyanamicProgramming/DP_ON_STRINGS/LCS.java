@@ -4,9 +4,10 @@ import java.util.Arrays;
 
 public class LCS {
     public static void main(String[] args) {
-
+        int res=lcs("adebc","dcadb");
+        System.out.println(res);
     }
-    public int longestCommonSubsequence(String text1, String text2) {
+    public static int longestCommonSubsequence(String text1, String text2) {
         int dp[][]=new int[text1.length()][text2.length()];
         for(int rows[]:dp)
             Arrays.fill(rows,-1);
@@ -24,17 +25,13 @@ public class LCS {
         //not match
         return dp[index1][index2]=0+Math.max(helper(index1-1,index2,text1,text2,dp),helper(index1,index2-1,text1,text2,dp));
     }
-    //tabulation
+    // Tabulation
     static int lcs(String s1, String s2) {
         int n = s1.length();
         int m = s2.length();
 
         // Create a 2D array to store results of subproblems
         int dp[][] = new int[n + 1][m + 1];
-
-        // Initialize the dp array with -1 to indicate that subproblems are not solved yet
-        for (int rows[] : dp)
-            Arrays.fill(rows, -1);
 
         // Initialize the first row and first column with zeros since LCS with an empty string is zero
         for (int i = 0; i <= n; i++) {
@@ -57,7 +54,16 @@ public class LCS {
             }
         }
 
+        // Print the dp array for debugging
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();
+        }
+
         return dp[n][m]; // Return the length of the Longest Common Subsequence (LCS)
     }
+
 
 }
