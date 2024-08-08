@@ -28,4 +28,29 @@ public class DistinctSubSequences {
             return dp[index1][index2] = helper(index1 - 1, index2,s, t, dp);
         }
     }
+
+    //tabulation
+    public static int helper(int n,int m,String s,String t){
+        int dp[][]=new int[n+1][m+1];
+
+// Initialize the first column with 1 because there's one empty subsequence in any string.
+        for (int i = 0; i < n + 1; i++) {
+            dp[i][0] = 1;
+        }
+// Initialize the first row (except dp[0][0]) with 0 because there's no way to form s2 from an empty string.
+        for (int i = 1; i < m + 1; i++) {
+            dp[0][i] = 0;
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+
+        return dp[n][m];
+    }
 }
