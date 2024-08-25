@@ -27,5 +27,6 @@ public class Conversions {
     public static void main(String[] args) {
         System.out.println(IntToBinary(7));
         System.out.println(BinaryToInt("111"));
+        System.out.println(IntToBinary(13));
     }
 }
