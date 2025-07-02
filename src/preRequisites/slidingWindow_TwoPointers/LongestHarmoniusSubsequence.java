@@ -13,7 +13,7 @@ public class LongestHarmoniusSubsequence {
                 if(nums[r]-nums[l]==1)
                     maxLen=Math.max(maxLen,r-l+1);
 
-                r++;
+                 r++;
             }
             return maxLen;
         }
