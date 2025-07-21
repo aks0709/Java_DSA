@@ -52,4 +52,28 @@ public class DetectCycle {
         return false;
     }
 
+    public boolean isCycle2(int V, List<Integer>[] adj) {
+        int[] vis = new int[V];
+
+        for (int i = 0; i < V; i++) {
+            if (vis[i] == 0) {
+                if (dfs(i, adj, vis,-1)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean dfs(int node,List<Integer>[] adj, int[] vis,int parent){
+        vis[node]=1;
+        for(Integer it :adj[node]){
+            if(vis[it]==0){
+                if (dfs(it, adj, vis, node)) {  // ✅ check return value
+                    return true;
+                }
+            } else if(it!=parent)
+                return true;
+        }
+        return false;
+    }
 }
