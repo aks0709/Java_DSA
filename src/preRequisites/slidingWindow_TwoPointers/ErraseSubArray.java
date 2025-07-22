@@ -2,9 +2,11 @@ package preRequisites.slidingWindow_TwoPointers;
 
 import java.util.HashSet;
 import java.util.*;
+
+@SuppressWarnings("all")  // Suppresses all compiler warnings
 public class ErraseSubArray {
 
-
+    @SuppressWarnings("all")
     class Solution {
         public int maximumUniqueSubarray(int[] nums) {
             int l = 0, r = 0;
@@ -18,7 +20,6 @@ public class ErraseSubArray {
                     maxSum = Math.max(maxSum, sum);
                     r++;
                 } else {
-                    // Remove elements from the left until nums[r] can be added
                     set.remove(nums[l]);
                     sum -= nums[l];
                     l++;
@@ -28,5 +29,5 @@ public class ErraseSubArray {
             return maxSum;
         }
     }
-
 }
+
